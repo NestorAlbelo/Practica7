@@ -1,0 +1,106 @@
+require "gcd.rb"
+
+class Fracciones
+	def initialize(x,y)
+		i=gcd(x,y)
+		@numerador=x/i
+		@denominador=y/i
+	end
+	def num
+		@numerador
+	end
+	def denom
+		@denominador
+	end
+	def to_s
+		"#{num}/#{denom}".to_s
+	end
+	def flotante
+		num/denom
+	end
+	def == (other)
+		if(num==other.num && denom==other.denom)
+			return true
+		end
+		return false
+	end
+	def abs
+		if (num<0)
+			@numerador = - @numerador
+		end
+		if (denom<0)
+			@denominador = - @denominador
+		end
+	end
+	
+	def reciproco
+		Fracciones.new(@denominador,@numerador)
+	end	
+		
+	def opuesto
+		Fracciones.new(-@numerador,@denominador)
+	end
+		
+	def + (frac)
+		a=(num*frac.denom + frac.num*denom)
+		b=(denom*frac.denom)
+		Fracciones.new(a,b)
+	end
+	def - (frac)
+		a=(num*frac.denom - frac.num*denom)
+		b=(denom*frac.denom)
+		Fracciones.new(a,b)
+	end
+	def * (frac)
+		a=(num*frac.num)
+		b=(denom*frac.denom)
+		Fracciones.new(a,b)
+	end
+	def / (frac)
+		a=(num*frac.denom)
+		b=(denom*frac.num)
+		Fracciones.new(a,b)
+	end
+		
+	def % (other)
+		a = num/denom
+		b = other.num/other.denom
+		a%b
+	end
+		
+	def < (other)
+		a = num/denom
+		b = other.num/other.denom
+		if(a<b)
+			return true
+		end
+		return false
+	end
+		
+	def > (other)
+		a = num/denom
+		b = other.num/other.denom
+		if(a>b)
+			return true
+		end
+		return false
+	end
+		
+	def <= (other)
+		a = num/denom
+		b = other.num/other.denom
+		if(a<=b)
+			return true
+		end
+		return false
+	end
+		
+	def >= (other)
+		a = num/denom
+		b = other.num/other.denom
+		if(a>=b)
+			return true
+		end
+		return false
+	end
+end

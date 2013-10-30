@@ -1,0 +1,9 @@
+require "Fracciones.rb"
+
+A=Fracciones.new(1,2)
+B=Fracciones.new(1,1)
+
+puts "#{A==B}"
+puts "#{A<B}"
+
+
