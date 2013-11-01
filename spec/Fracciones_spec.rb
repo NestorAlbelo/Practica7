@@ -1,4 +1,4 @@
-require "C:/Users/Nestor/Documents/Practica7/lib/Fracciones.rb"
+require "Fracciones.rb"
 
 describe Fracciones do
 	before :each do
